@@ -6,7 +6,7 @@
  * Time: 5:07 PM
  */
 include 'header.php';
-
+require_once 'app/init.php';
 ?>
 <div class="wrapper">
 
@@ -105,7 +105,7 @@ include 'header.php';
               </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="view/employee.php">Employees</a></li>
+                        <li><a href="app/view/employee.php">Employees</a></li>
 
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Delivery Vehicles</span>
