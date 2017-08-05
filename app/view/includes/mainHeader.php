@@ -139,6 +139,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="employee.php">Employees</a></li>
+                         <li><a href="customer.php">Customers</a></li>
 
                         <li class="treeview">
                             <a href="#"><i class="fa fa-link"></i> <span>Delivery Vehicles</span>
