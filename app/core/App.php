@@ -7,20 +7,23 @@
  */
 class App{
 
-    protected $controller = 'Home';
+    protected $controller = 'home';
     protected $method = 'index';
     protected $params = [];
 
 
     public function __construct()
     {
-        $url = $this -> parseUrl();
+        $url = $this->parseUrl();
 
-        if(file_exists('../controller/'.$url[0].'.php')){
+        if(file_exists('app/controller/' .$url[0]. '.php')){
             $this->controller = $url[0];
             unset($url[0]);
         }
-        require_once '../controller/'.$this->controller.'.php';
+
+        require_once 'app/controller/' .$this->controller. '.php';
+
+        $this->controller= new $this->controller;
 
         if(isset($url[1])){
             if(method_exists($this->controller,$url[1])){
@@ -28,6 +31,9 @@ class App{
                 unset($url[1]);
             }
         }
+        $this->params = $url? array_values($url) : [];
+
+        call_user_func_array([$this->controller,$this->method],$this->params);
 
     }
 
